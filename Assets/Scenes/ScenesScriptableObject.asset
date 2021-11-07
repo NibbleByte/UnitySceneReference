@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbbfbfa0e1eca3d44ad5e43b8cdf6255, type: 3}
+  m_Name: ScenesScriptableObject
+  m_EditorClassIdentifier: 
+  TargetScene:
+    m_SceneAsset: {fileID: 102900000, guid: e5e30af62c988234a912a343f052da44, type: 3}
+    m_IsDirty: 0
+    m_ScenePath: Assets/Scenes/SampleScene_2.unity
+  MoreScene:
+  - m_SceneAsset: {fileID: 102900000, guid: 26d92f6ceae54f747b5f4ef157f8d8e3, type: 3}
+    m_IsDirty: 0
+    m_ScenePath: Assets/Scenes/SampleScene_3.unity
+  - m_SceneAsset: {fileID: 102900000, guid: b5df7af28ae0b83489131f272f300126, type: 3}
+    m_IsDirty: 0
+    m_ScenePath: Assets/Scenes/SampleScene_4.unity
