@@ -7,6 +7,16 @@ The [Unity SceneManager](https://docs.unity3d.com/ScriptReference/SceneManagemen
 
 Use this class to avoid manually typing and updating scene path strings - it will try to do it for you as best as it can, including when <b>building the player</b>.
 
+## Installation
+* Download the single file directly: [SceneReference](Assets/DevLocker/Utils/SceneReference.cs)
+* Github upm package - merge this to your `Packages/manifest.json`
+```
+{
+  "dependencies": {
+    "devlocker.utils.scenereference": "https://github.com/NibbleByte/UnitySceneReference.git#upm"
+}
+```
+
 ## Features
 * The SceneReference class works on lists, scriptable objects, game objects, multiple-select.
 * Small button on the right to add or remove from the build settings. The +/- sign and color indicate what the operation would be.
