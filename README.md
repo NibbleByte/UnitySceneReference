@@ -18,5 +18,8 @@ Here is how it looks like:<br/>
 Here is how it looks in debug mode (what data is stored):<br/>
 ![SceneReferenceDebug](Docs/Screenshots/SceneReference.png)
 
+Here is how it looks in the code:<br/>
+![SceneReferenceCode](Docs/Screenshots/SceneReferenceCode.png)
+
 ## Credits
 Using the [ISerializationCallbackReceiver](https://docs.unity3d.com/ScriptReference/ISerializationCallbackReceiver.html) was inspired by the [unity-scene-reference](https://github.com/JohannesMP/unity-scene-reference) implementation.
