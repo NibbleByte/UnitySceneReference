@@ -9,6 +9,13 @@ Use this class to avoid manually typing and updating scene path strings - it wil
 
 ## Installation
 * Download the single file directly: [SceneReference](Assets/DevLocker/Utils/SceneReference.cs)
+* [OpenUPM](https://openupm.com/packages/devlocker.utils.scenereference) support:
+```
+npm install -g openupm-cli
+openupm add devlocker.utils.scenereference
+```
+[![openupm](https://img.shields.io/npm/v/devlocker.utils.scenereference?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/devlocker.utils.scenereference/)
+
 * Github upm package - merge this to your `Packages/manifest.json`
 ```
 {
