@@ -74,6 +74,27 @@ namespace DevLocker.Utils
 		/// </summary>
 		public string SceneName => Path.GetFileNameWithoutExtension(ScenePath);
 
+		public SceneReference() { }
+
+		public SceneReference(string scenePath)
+		{
+			ScenePath = scenePath;
+		}
+
+		public SceneReference(SceneReference other)
+		{
+			m_ScenePath = other.m_ScenePath;
+
+#if UNITY_EDITOR
+			m_SceneAsset = other.m_SceneAsset;
+			m_IsDirty = other.m_IsDirty;
+
+			AutoUpdateReference();
+#endif
+		}
+
+		public SceneReference Clone() => new SceneReference(this);
+
 		public override string ToString()
 		{
 			return m_ScenePath;
