@@ -193,6 +193,7 @@ namespace DevLocker.Utils
 			buildSettingsPos.width = buildSettingsWidth;
 
 			var sceneAssetProperty = property.FindPropertyRelative("m_SceneAsset");
+			bool hadReference = sceneAssetProperty.objectReferenceValue != null;
 
 			EditorGUI.PropertyField(assetPos, sceneAssetProperty, new GUIContent());
 
@@ -204,6 +205,8 @@ namespace DevLocker.Utils
 				if (AssetDatabase.TryGetGUIDAndLocalFileIdentifier(sceneAssetProperty.objectReferenceValue, out guid, out localId)) {
 					indexInSettings = Array.FindIndex(EditorBuildSettings.scenes, s => s.guid.ToString() == guid);
 				}
+			} else if (hadReference) {
+				property.FindPropertyRelative("m_ScenePath").stringValue = string.Empty;
 			}
 
 			GUIContent settingsContent = indexInSettings != -1
