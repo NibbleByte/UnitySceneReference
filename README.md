@@ -33,7 +33,7 @@ Here is how it looks like:<br/>
 ![SceneReference](Docs/Screenshots/SceneReference.png)
 
 Here is how it looks in debug mode (what data is stored):<br/>
-![SceneReferenceDebug](Docs/Screenshots/SceneReference.png)
+![SceneReferenceDebug](Docs/Screenshots/SceneReferenceDebug.png)
 
 Here is how it looks in the code:<br/>
 ![SceneReferenceCode](Docs/Screenshots/SceneReferenceCode.png)
