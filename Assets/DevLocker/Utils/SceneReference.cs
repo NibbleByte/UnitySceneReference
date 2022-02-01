@@ -61,6 +61,11 @@ namespace DevLocker.Utils
 				m_ScenePath = value;
 
 #if UNITY_EDITOR
+				if (string.IsNullOrEmpty(m_ScenePath)) {
+					m_SceneAsset = null;
+					return;
+				}
+
 				m_SceneAsset = AssetDatabase.LoadAssetAtPath<SceneAsset>(m_ScenePath);
 				if (m_SceneAsset == null) {
 					Debug.LogError($"Setting {nameof(SceneReference)} to {value}, but no scene could be located there.");

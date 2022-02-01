@@ -12,9 +12,16 @@ public class SceneReferenceTester : MonoBehaviour
 
     public ScenesScriptableObject ScenesScriptableObject;
 
+    [Header("Tested on Awake")]
+    public SceneReference SceneCloned;
+    public SceneReference SceneEmpty;
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+
+        SceneCloned = Scene.Clone();
+        SceneEmpty.ScenePath = "";
     }
 
     // Update is called once per frame
