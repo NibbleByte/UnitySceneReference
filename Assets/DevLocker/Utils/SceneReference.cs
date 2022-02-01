@@ -79,6 +79,8 @@ namespace DevLocker.Utils
 		/// </summary>
 		public string SceneName => Path.GetFileNameWithoutExtension(ScenePath);
 
+		public bool IsEmpty => string.IsNullOrEmpty(ScenePath);
+
 		public SceneReference() { }
 
 		public SceneReference(string scenePath)
