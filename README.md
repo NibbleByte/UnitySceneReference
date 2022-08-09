@@ -38,5 +38,7 @@ Here is how it looks in debug mode (what data is stored):<br/>
 Here is how it looks in the code:<br/>
 ![SceneReferenceCode](Docs/Screenshots/SceneReferenceCode.png)
 
-## Credits
-Using the [ISerializationCallbackReceiver](https://docs.unity3d.com/ScriptReference/ISerializationCallbackReceiver.html) was inspired by the [unity-scene-reference](https://github.com/JohannesMP/unity-scene-reference) implementation.
+## Credits & Similar Projects
+Using the [ISerializationCallbackReceiver](https://docs.unity3d.com/ScriptReference/ISerializationCallbackReceiver.html) was inspired by the [JohannesMP's SceneReference](https://github.com/JohannesMP/unity-scene-reference) implementation.
+
+Another solution that builds a runtime look-up table instead of storing paths in the data members is [Eflatun.SceneReference](https://github.com/starikcetin/Eflatun.SceneReference).
