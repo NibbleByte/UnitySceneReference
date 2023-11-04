@@ -20,6 +20,9 @@ namespace DevLocker.Utils
 	///
 	/// Using <see cref="ISerializationCallbackReceiver" /> was inspired by the <see cref="https://github.com/JohannesMP/unity-scene-reference">unity-scene-reference</see> implementation.
 	/// </summary>
+#if UNITY_EDITOR
+	[InitializeOnLoad]
+#endif
 	[Serializable]
 	public class SceneReference : ISerializationCallbackReceiver
 	{
@@ -100,6 +103,20 @@ namespace DevLocker.Utils
 #endif
 		}
 
+#if UNITY_EDITOR
+		private static bool s_ReloadingAssemblies = false;
+
+		static SceneReference()
+		{
+			AssemblyReloadEvents.beforeAssemblyReload += OnBeforeAssemblyReload;
+		}
+
+		private static void OnBeforeAssemblyReload()
+		{
+			s_ReloadingAssemblies = true;
+		}
+#endif
+
 		public SceneReference Clone() => new SceneReference(this);
 
 		public override string ToString()
@@ -111,6 +128,11 @@ namespace DevLocker.Utils
 		public void OnBeforeSerialize()
 		{
 #if UNITY_EDITOR
+			// In rare cases this error may be logged when trying to change SceneReference while assembly is reloading:
+			// "Objects are trying to be loaded during a domain backup. This is not allowed as it will lead to undefined behaviour!"
+			if (s_ReloadingAssemblies)
+				return;
+
 			AutoUpdateReference();
 #endif
 		}
