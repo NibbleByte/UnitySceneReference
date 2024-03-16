@@ -1,6 +1,6 @@
+// MIT License Copyright(c) 2024 Filip Slavov, https://github.com/NibbleByte/UnitySceneReference
+
 using DevLocker.Utils;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

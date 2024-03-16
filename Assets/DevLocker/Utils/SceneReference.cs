@@ -1,3 +1,5 @@
+// MIT License Copyright(c) 2024 Filip Slavov, https://github.com/NibbleByte/UnitySceneReference
+
 using System;
 using UnityEngine;
 using System.Linq;

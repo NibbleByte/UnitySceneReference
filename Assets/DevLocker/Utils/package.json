@@ -1,8 +1,8 @@
 {
     "name": "devlocker.utils.scenereference",
     "displayName": "Scene Reference",
-    "version": "1.0.5",
-    "unity": "2018.3",
+    "version": "1.0.6",
+    "unity": "2022.3",
     "description": "Keeps reference to a scene asset and tracks it's path, so it can be used in the game runtime.Use this class to avoid manually typing and updating scene path strings - it will try to do it for you as best as it can, including when building the player.",
 	"category": "Tools",
     "keywords": [
