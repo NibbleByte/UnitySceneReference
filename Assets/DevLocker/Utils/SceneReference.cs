@@ -84,7 +84,15 @@ namespace DevLocker.Utils
 		/// </summary>
 		public string SceneName => Path.GetFileNameWithoutExtension(ScenePath);
 
+		/// <summary>
+		/// Is scene actually set to this instance?
+		/// </summary>
 		public bool IsEmpty => string.IsNullOrEmpty(ScenePath);
+
+		/// <summary>
+		/// Get the index of the scene in the build settings.
+		/// </summary>
+		public int BuildIndex => UnityEngine.SceneManagement.SceneUtility.GetBuildIndexByScenePath(ScenePath);
 
 		public SceneReference() { }
 
