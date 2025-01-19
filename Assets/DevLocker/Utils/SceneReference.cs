@@ -26,7 +26,7 @@ namespace DevLocker.Utils
 	[InitializeOnLoad]
 #endif
 	[Serializable]
-	public class SceneReference : ISerializationCallbackReceiver
+	public class SceneReference : ISerializationCallbackReceiver, IEquatable<SceneReference>, IComparable<SceneReference>
 	{
 
 #if UNITY_EDITOR
@@ -93,6 +93,42 @@ namespace DevLocker.Utils
 		/// Get the index of the scene in the build settings.
 		/// </summary>
 		public int BuildIndex => UnityEngine.SceneManagement.SceneUtility.GetBuildIndexByScenePath(ScenePath);
+
+
+		public override bool Equals(object obj)
+		{
+			if (obj is SceneReference other) {
+				return Equals(other);
+			}
+
+			return false;
+		}
+
+		public bool Equals(SceneReference other)
+		{
+			if (other == null)
+				return false;
+
+			return ScenePath == other.ScenePath;
+		}
+
+		public bool Equals(string scenePath)
+		{
+			return ScenePath == scenePath;
+		}
+
+		public override int GetHashCode()
+		{
+			return ScenePath?.GetHashCode() ?? 0;
+		}
+
+		public int CompareTo(SceneReference other)
+		{
+			if (other == null)
+				return 1;
+
+			return ScenePath.CompareTo(other.ScenePath);
+		}
 
 		public SceneReference() { }
 
