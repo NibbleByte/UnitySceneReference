@@ -245,8 +245,21 @@ namespace DevLocker.Utils
 	[CanEditMultipleObjects]
 	internal class SceneReferencePropertyDrawer : PropertyDrawer
 	{
+		private static GUIStyle s_AddRemoveButtonStyle;
+		private static GUIContent s_AddButtonContent;
+		private static GUIContent s_RemoveButtonContent;
+
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
+			if (s_AddButtonContent == null) {
+				s_AddRemoveButtonStyle = new GUIStyle(EditorStyles.miniButtonRight);
+				s_AddRemoveButtonStyle.padding = new RectOffset(4, 4, 4, 4);
+				s_AddRemoveButtonStyle.fontStyle = FontStyle.Bold;
+
+				s_AddButtonContent = new GUIContent(EditorGUIUtility.IconContent("CreateAddNew").image, "Scene is missing in the Editor Build Settings. Click here to add it.");
+				s_RemoveButtonContent = new GUIContent(EditorGUIUtility.IconContent("Toolbar Minus").image, "Scene is already in the Editor Build Settings. Click here to remove it."); //EditorGUIUtility.IconContent("CrossIcon");
+			}
+
 			var isDirtyProperty = property.FindPropertyRelative("m_IsDirty");
 			if (isDirtyProperty.boolValue) {
 				isDirtyProperty.boolValue = false;
@@ -285,14 +298,14 @@ namespace DevLocker.Utils
 			}
 
 			GUIContent settingsContent = indexInSettings != -1
-				? new GUIContent("-", "Scene is already in the Editor Build Settings. Click here to remove it.")
-				: new GUIContent("+", "Scene is missing in the Editor Build Settings. Click here to add it.")
+				? s_RemoveButtonContent
+				: s_AddButtonContent
 				;
 
 			Color prevBackgroundColor = GUI.backgroundColor;
 			GUI.backgroundColor = indexInSettings != -1 ? Color.red : Color.green;
 
-			if (GUI.Button(buildSettingsPos, settingsContent, EditorStyles.miniButtonRight) && sceneAssetProperty.objectReferenceValue) {
+			if (GUI.Button(buildSettingsPos, settingsContent, s_AddRemoveButtonStyle) && sceneAssetProperty.objectReferenceValue) {
 				if (indexInSettings != -1) {
 					var scenes = EditorBuildSettings.scenes.ToList();
 					scenes.RemoveAt(indexInSettings);
