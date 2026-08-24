@@ -60,3 +60,4 @@ crashlytics-build.properties
 
 /*.vsconfig
 /UserSettings
+/Packages/com.unity.asset-store-tools
