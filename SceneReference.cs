@@ -21,6 +21,9 @@ namespace DevLocker.Utils
 	/// including when <b>building the player</b>.
 	///
 	/// Using <see cref="ISerializationCallbackReceiver" /> was inspired by the <see cref="https://github.com/JohannesMP/unity-scene-reference">unity-scene-reference</see> implementation.
+	///
+	/// GitHub: https://github.com/NibbleByte/UnitySceneReference
+	///
 	/// </summary>
 #if UNITY_EDITOR
 	[InitializeOnLoad]
